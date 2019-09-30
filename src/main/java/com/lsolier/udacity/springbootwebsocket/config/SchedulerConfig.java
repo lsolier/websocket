@@ -14,7 +14,7 @@ public class SchedulerConfig {
   @Autowired
   private SimpMessagingTemplate template;
 
-  @Scheduled
+  @Scheduled(fixedDelay = 5000)
   public void sendAdhocMessage() {
     template.convertAndSend("/topic/user", new UserResponse("Scheduler"));
   }
